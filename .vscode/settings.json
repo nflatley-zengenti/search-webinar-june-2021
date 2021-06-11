@@ -26,7 +26,6 @@
   },
   // Always show the ESlint status bar item.
   "eslint.alwaysShowStatus": false,
-  "prettier-eslint.eslintIntegration": true,
   "files.exclude": {
     // exclude .js and .js.map files, when in a TypeScript project
     "**/*.js.map": true,
@@ -42,21 +41,22 @@
   "workbench.editor.highlightModifiedTabs": true,
   "eslint.packageManager": "yarn",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
-  // "workbench.colorCustomizations": {
-  //   "tab.activeBorderTop": "#e9654c",
-  //   "activityBar.background": "#666666",
-  //   "activityBar.activeBorder": "#55ea6c",
-  //   "activityBar.foreground": "#15202b",
-  //   "activityBar.inactiveForeground": "#15202b99",
-  //   "activityBarBadge.background": "#55ea6c",
-  //   "activityBarBadge.foreground": "#15202b",
-  //   "titleBar.activeBackground": "#e33e1f",
-  //   "titleBar.inactiveBackground": "#e33e1f99",
-  //   "titleBar.activeForeground": "#e7e7e7",
-  //   "titleBar.inactiveForeground": "#e7e7e799",
-  //   "statusBar.background": "#e33e1f",
-  //   "statusBarItem.hoverBackground": "#e9654c",
-  //   "statusBar.foreground": "#e7e7e7"
-  // },
+  "editor.formatOnSave": true,
+  "workbench.colorCustomizations": {
+    "tab.activeBorderTop": "#e9654c",
+    "activityBar.background": "#2b2f51",
+    "activityBar.activeBackground": "#77e8c6",
+    "activityBar.activeBorder": "#221030",
+    "activityBar.foreground": "#2b2f51",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#221030",
+    "activityBarBadge.foreground": "#e7e7e7",
+    // "titleBar.activeBackground": "#e33e1f",
+    // "titleBar.inactiveBackground": "#e33e1f99",
+    // "titleBar.activeForeground": "#e7e7e7",
+    // "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#e33e1f",
+    "statusBarItem.hoverBackground": "#e9654c",
+    "statusBar.foreground": "#e7e7e7"
+  },
 }

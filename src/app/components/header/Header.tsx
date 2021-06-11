@@ -13,7 +13,6 @@ import IconButton from '../iconButton/IconButton';
 import VisuallyHidden from '../visuallyHidden/VisuallyHidden';
 import HeaderSearch from '../headerSearch/HeaderSearch.container';
 import Navigation from '../navigation/Navigation.container';
-import BasketMenu from '../basketMenu/BasketMenu.container';
 
 // Hooks
 import { _useOnClickOutside } from '../../utils/hooks/useOnClickOutside';
@@ -38,7 +37,6 @@ const SearchOpenHeader = ({ _setIsSearchOpen }: SearchOpenHeaderProps) => {
   return (
     <div ref={ref} className="header__search--wrapper">
       <HeaderSearch className="header__search" />
-      <BasketMenu />
       <Navigation />
     </div>
   );
@@ -91,7 +89,6 @@ const Header = ({
             isToggled={isSearchOpen}
             _func={() => _setIsSearchOpen(!isSearchOpen)}
           />
-          <BasketMenu />
           <Navigation />
         </div>
       </Wrapper>

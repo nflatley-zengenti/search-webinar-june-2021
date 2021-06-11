@@ -12,33 +12,6 @@ export default [
       loading: Loading,
     }),
   },
-  {
-    path: '/products/:contentTypeId?',
-    exact: true,
-    fetchNode: true,
-    component: Loadable({
-      loader: () => import('~/pages/ProductListing/ProductListing.page'),
-      loading: Loading,
-    }),
-  },
-  {
-    path: '/basket',
-    exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/Basket/Basket.page'),
-      loading: Loading,
-    }),
-  },
-  {
-    path: '/checkout',
-    exact: false,
-    fetchNode: false,
-    component: Loadable({
-      loader: () => import('~/pages/Checkout/Checkout.page'),
-      loading: Loading,
-    }),
-  },
   // ********************************
   // ˅˅ Do not delete these routes ˅˅
   {

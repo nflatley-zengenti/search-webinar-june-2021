@@ -2,7 +2,6 @@ import React from 'react';
 
 import CardStyled from './Card.styled';
 import Icon from '../icon/Icon';
-import Rating from '../rating/Rating';
 import Image from '../image/Image';
 import BlogDetail from '../blogDetail/BlogDetail';
 
@@ -31,7 +30,6 @@ const Card = ({
   path,
   price,
   readTime,
-  rating,
   text,
   title,
   type,
@@ -74,7 +72,6 @@ const Card = ({
             <div className="card__content">
               <h3 className="card__title">{title}</h3>
               {priceText && <span className="card__price">£{priceText}</span>}
-              <Rating className="card__rating" rating={rating} />
             </div>
           </>
         );

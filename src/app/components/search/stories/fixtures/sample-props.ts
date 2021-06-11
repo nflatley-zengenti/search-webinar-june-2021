@@ -271,8 +271,7 @@ export default {
           text: 'Did you know that houseplants are actually good for your skin? Here are our top 3 plants for a glowing complexion.',
           imageAlt:
             "Someone's hands with bright coral nail varnish crossed over each other on a beach towel.",
-          imageUri:
-            '/image-library/blog-images/beach-towel-hands.x6bc859e5.png',
+          imageUri: `${imageHost}/image-library/blog-images/beach-towel-hands.x6bc859e5.png`,
           _pagePosition: 0,
           title: 'The best plants for looking after your skin',
           type: 'blog',
@@ -295,8 +294,7 @@ export default {
           uri: '/blog/5-ways-to-keep-your-plants-happy-this-winter',
           text: 'Here are our top 5 plants that are non-toxic for your furry best friend, but are still really popular houseplants.',
           imageAlt: 'An illustration of a man watering a large potted plant.',
-          imageUri:
-            '/image-library/blog-images/man-watering-plants.xde4b3750.png',
+          imageUri: `${imageHost}/image-library/blog-images/man-watering-plants.xde4b3750.png`,
           _pagePosition: 2,
           title: '5 ways to keep your plants happy this winter',
           type: 'blog',
@@ -330,8 +328,7 @@ export default {
           uri: '/blog/how-to-look-after-your-plants-when-youre-going-on-holiday-copy',
           text: 'Here are our top 5 plants that are non-toxic for your furry best friend, but are still really popular houseplants.',
           imageAlt: 'An illustration of a woman watering a flower bed.',
-          imageUri:
-            '/image-library/blog-images/woman-watering-plants.x2b4add41.png',
+          imageUri: `${imageHost}/image-library/blog-images/woman-watering-plants.x2b4add41.png`,
           _pagePosition: 5,
           title: "How to look after your plants when you're going on holiday",
           type: 'blog',
@@ -510,8 +507,7 @@ export default {
           text: "Breathe easy with help from a spider plant, or chlorophytum comosum – a classic air-filtering houseplant that's easy to grow...",
           imageAlt: 'A spider plant in a white pot on a blue desk.',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/spider-plant-on-table.x01542d01.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/spider-plant-on-table.x01542d01.jpg`,
           _pagePosition: 0,
           title: 'Spider plant',
           type: 'product',
@@ -528,8 +524,7 @@ export default {
           imageAlt:
             'A pair of Swiss cheese plants in a brightly lit room with mid-century furniture. ',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/two-swiss-cheese-plants-in-room.x3a00f80a.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/two-swiss-cheese-plants-in-room.x3a00f80a.jpg`,
           _pagePosition: 1,
           title: 'Swiss cheese plant',
           type: 'product',
@@ -546,8 +541,7 @@ export default {
           imageAlt:
             'A pair of variegated snake plants in white pots on a table next to a sofa. ',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/pair-of-snake-plants.x55c9dd5f.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/pair-of-snake-plants.x55c9dd5f.jpg`,
           _pagePosition: 2,
           title: 'Variegated snake plant',
           type: 'product',
@@ -563,8 +557,7 @@ export default {
           imageAlt:
             'A small grey cylindrical pot containing a succulent plant. ',
           isPromoted: [false],
-          imageUri:
-            '/image-library/product-images/pot-images/gra-pot.x9a94e535.jpg?w=400&h=280',
+          imageUri: `${imageHost}/image-library/product-images/pot-images/gra-pot.x9a94e535.jpg?w=400&h=280`,
           _pagePosition: 3,
           title: 'Grå small grey pot',
           type: 'product',
@@ -580,8 +573,7 @@ export default {
           text: "A great option for beginner plant parents, this air purifying shrub will grow in a wide range of conditions. In fact, it's o...",
           imageAlt: 'A multi-stemmed dracaena fragrans.',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/dracaena-next-to-sofa.x3f509d47.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/dracaena-next-to-sofa.x3f509d47.jpg`,
           _pagePosition: 4,
           title: 'Dracaena fragrans',
           type: 'product',
@@ -597,8 +589,7 @@ export default {
           text: 'A classic choice for adding a touch of understated elegance to a home, the peace lily is one of the most popular plants we s...',
           imageAlt: 'A peace lily plant in a room. ',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/peace-lily-room.xe600292d.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/peace-lily-room.xe600292d.jpg`,
           _pagePosition: 5,
           title: 'Peace lily',
           type: 'product',
@@ -614,8 +605,7 @@ export default {
           text: 'Every kitchen should have an aloe vera plant. Well known for its amazing ability to soothe and heal burns, this amazing plan...',
           imageAlt: 'An Aloe vera plant in a gold pot.',
           isPromoted: [false],
-          imageUri:
-            '/image-library/product-images/plant-images/aloe-vera-gold-pot.x3d75c7a2.jpg?w=400&h=280',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/aloe-vera-gold-pot.x3d75c7a2.jpg?w=400&h=280`,
           _pagePosition: 6,
           title: 'Aloe vera',
           type: 'product',
@@ -631,8 +621,7 @@ export default {
           text: 'Easily identified by its bright green and delicate leaves, the maidenhead fern thrives in wet environments – making it an id...',
           imageAlt: 'A person misting a maidenhead fern plant.',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/person-misting-maidenhead-fern.x2f01470f.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/person-misting-maidenhead-fern.x2f01470f.jpg`,
           _pagePosition: 7,
           title: 'Maidenhair fern',
           type: 'product',
@@ -648,8 +637,7 @@ export default {
           text: 'Elephant ear plants are a great way to introduce lush and exotic looking foliage to your home. There are several different s...',
           imageAlt: "An elephant's ear plant in a terracotta pot. ",
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/elephants-ear-and-pots.x92fd10eb.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/elephants-ear-and-pots.x92fd10eb.jpg`,
           _pagePosition: 8,
           title: 'Elephant ear',
           type: 'product',
@@ -666,8 +654,7 @@ export default {
           imageAlt:
             'A close-up of a Chinese evergreen plant in a room of other plants. ',
           isPromoted: [],
-          imageUri:
-            '/image-library/product-images/plant-images/chinese-evergreen-room.xbe410c9a.jpg',
+          imageUri: `${imageHost}/image-library/product-images/plant-images/chinese-evergreen-room.xbe410c9a.jpg`,
           _pagePosition: 9,
           title: 'Chinese evergreen',
           type: 'product',

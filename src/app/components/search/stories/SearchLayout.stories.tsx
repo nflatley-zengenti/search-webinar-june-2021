@@ -48,8 +48,9 @@ const Template: Story<SearchProps<SearchCardProps | CardProps>> = args => {
     updateArgs({
       ...args,
       currentFacet: facet,
-      results: sampleFacet.results,
       featuredResults: sampleFacet.featuredResults,
+      filters: sampleFacet.filters,
+      results: sampleFacet.results,
     });
   };
 
@@ -163,6 +164,7 @@ Primary.args = {
   currentFacet: SearchFacets.all,
   facets: sampleProps.facets,
   featuredResults: firstFacet.featuredResults,
+  filters: firstFacet.filters,
   results: firstFacet.results,
   resultsInfo: sampleProps.resultsInfo,
   searchTerm: sampleProps.searchTerm,

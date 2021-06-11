@@ -2,12 +2,12 @@ import { takeEvery, call, select, put } from 'redux-saga/effects';
 
 import { selectIsSearchOpen } from './selectors';
 
-import { ROUTE_WILL_LOAD } from '~/core/redux/types';
+import { SET_NAVIGATION_PATH } from '~/core/redux/types';
 
 import { TOGGLE_SEARCH, SET_SCREEN_SIZE, BROWSER_RESIZE } from './types';
 
 export const UISagas = [
-  takeEvery(ROUTE_WILL_LOAD, handleUIState),
+  takeEvery(SET_NAVIGATION_PATH, handleUIState),
   takeEvery(BROWSER_RESIZE, getDeviceType),
 ];
 

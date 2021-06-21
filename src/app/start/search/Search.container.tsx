@@ -24,22 +24,7 @@ interface Props {
 const SearchContainer: React.FC<
   // Our 'results' prop will be of type SearchCardProps
   Props & SearchProps<SearchCardProps>
-> = ({
-  className,
-  clearFilters,
-  currentFacet,
-  currentPageIndex,
-  facets,
-  featuredResults,
-  filters,
-  results,
-  resultsInfo,
-  searchTerm,
-  updateCurrentFacet,
-  updatePageIndex,
-  updateSearchTerm,
-  updateSelectedFilters,
-}) => {
+> = ({ className }) => {
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
 

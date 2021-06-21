@@ -1,10 +1,10 @@
 import Loadable from 'react-loadable';
 import { Loading } from './Loading';
 
-import mapJson from '../../core/util/json-mapper';
+import mapJson from '~/core/util/json-mapper';
 
 // Mappings
-import { homepageHeroProps } from '../../pages/Home/transformations/homepage.entry-to-props.mapper';
+import { homepageHeroProps } from '~/pages/Home/transformations/homepage.entry-to-props.mapper';
 
 export default [
   {

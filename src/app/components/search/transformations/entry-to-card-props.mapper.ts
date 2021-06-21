@@ -2,7 +2,7 @@ import { mapEntries } from '~/core/util/json-mapper';
 import { ContentTypes, CardTypes } from '~/core/schema';
 
 import dateWithSuffix from '~/utils/dateWithSuffix';
-import { _truncateString } from '~/utils/truncateString';
+import { truncateString } from '~/utils/truncateString';
 
 import { Props as CardProps } from '~/components/card/Card';
 import { Props as SearchCardProps } from '~/components/searchCard/SearchCard';
@@ -11,7 +11,7 @@ const baseMapping = {
   title: 'entryTitle',
   text: {
     $path: ['kicker', 'leadParagraph', 'summary', 'description'],
-    $formatting: (text: string) => _truncateString(text, 124),
+    $formatting: (text: string) => truncateString(text, 124),
   },
   uri: 'sys.uri',
   imageUri: {

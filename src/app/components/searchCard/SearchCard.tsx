@@ -9,12 +9,12 @@ export interface Props {
   type: string;
   title: string;
   text?: string;
+  uri: string;
   imageUri: string;
   imageAlt: string;
   date?: string;
   readTime?: string;
-  price: number[];
-  uri: string;
+  price?: number[];
 }
 
 const SearchCard = ({

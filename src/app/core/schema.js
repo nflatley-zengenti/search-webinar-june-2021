@@ -116,6 +116,7 @@ export const FilterExpressionTypes = {
 
 export const CardTypes = {
   Blog: 'blog',
+  Generic: '',
   Product: 'product',
   Explore: 'explore',
   Content: 'content',

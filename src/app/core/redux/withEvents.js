@@ -2,7 +2,7 @@ import { call } from 'redux-saga/effects';
 import { setRouteFilters } from '@zengenti/contensis-react-base/search';
 import { queryParams, routeParams } from '../util/navigation';
 
-import transformations from '../../components/search/transformations';
+import transformations from '~/search/transformations';
 
 export default {
   onRouteLoad: function* onRouteLoad({ path }) {
@@ -37,12 +37,16 @@ export default {
     location,
     staticRoute,
   }) {
+    // Collect runtime parameters from the uri
     const params = {
       ...routeParams(staticRoute),
       ...queryParams(location?.search),
     };
 
+    // Trigger the search if we are at the /search route
     if (path.startsWith('/search')) {
+      // call the imported redux saga
+      // supply mappers and params to use for this route
       yield call(setRouteFilters, {
         mappers: transformations,
         params,

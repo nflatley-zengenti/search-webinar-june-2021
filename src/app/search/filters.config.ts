@@ -13,10 +13,10 @@ export const BlogFilters = {
     fieldId: 'category.sys.id',
     isSingleSelect: true,
     items: [
-      {
-        title: 'test',
-        key: '1234',
-      },
+      // {
+      //   title: 'test',
+      //   key: '1234',
+      // },
     ],
   },
   [Blog.author]: {

@@ -11,6 +11,7 @@ import {
   BlogFields,
   ContentFields,
   ProductFields,
+  SearchContentTypes,
 } from '~/core/schema';
 
 // Filters
@@ -104,6 +105,20 @@ export default {
     },
   },
   minilist: {
+    liveSearch: {
+      queryParams: {
+        contentTypeIds: SearchContentTypes,
+        fields: [
+          ...BaseFields,
+          ...BlogFields,
+          ...ProductFields,
+          ...ContentFields,
+        ],
+        pageSize: 4,
+        linkDepth: 1,
+        weightedSearchFields: WeightedFields,
+      },
+    },
     featuredProduct: {
       title: 'Featured Product',
       queryParams: {

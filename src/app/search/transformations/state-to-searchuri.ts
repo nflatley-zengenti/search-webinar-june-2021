@@ -92,9 +92,12 @@ const searchUriTemplate = {
         .toJS()
     );
 
-    // Add pageIndex to the query string
-    if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
-    if (pageIndex === 0) mergedSearch.pageIndex = undefined;
+    // Ensure pageIndex does not appear in the query string
+    mergedSearch.pageIndex = undefined;
+
+    // // Add pageIndex to the query string
+    // if (pageIndex) mergedSearch.pageIndex = pageIndex + 1;
+    // if (pageIndex === 0) mergedSearch.pageIndex = undefined;
 
     // Return the final query string
     return queryString.stringify(mergedSearch);

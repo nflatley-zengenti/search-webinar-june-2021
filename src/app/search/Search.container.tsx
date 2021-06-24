@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchProps } from '@zengenti/contensis-react-base/search';
+import { SearchProps, withSearch } from '@zengenti/contensis-react-base/search';
 
 import SearchStyled from '~/components/search/Search.styled';
 import Region from '~/layout/Region';
@@ -10,10 +10,15 @@ import SearchCard, {
 import Button from '~/components/button/Button';
 import SearchInput from '~/components/searchInput/SearchInput';
 import SearchFilters from '~/components/filters/Filters';
-import { SearchFacets } from '~/core/schema';
-import { BlogFilters } from './filters.config';
+// import { SearchFacets } from '~/core/schema';
+// import { BlogFilters } from './filters.config';
 import { useSelector } from 'react-redux';
 import { selectScreenSize } from '~/redux/ui/selectors';
+import transformations from './transformations';
+import PromotedContent from '~/components/promotedContent/PromotedContent';
+import useExploreMore from '~/components/search/hooks/useExploreMore';
+import useProductFilters from '~/components/search/hooks/useProductFilters';
+import Card, { Props as CardProps } from '~/components/card/Card';
 
 interface Props {
   className?: string;
@@ -42,91 +47,102 @@ const SearchContainer: React.FC<
 }) => {
   const screenSize = useSelector(selectScreenSize);
   const isDesktop = screenSize >= 1024 ? true : false;
+  // Populates 'Explore more' promo content if no main search results
+  const exploreMore = useExploreMore(resultsInfo.hasResults);
 
-  const hasResults = true;
+  // Handles rendering different filters depending on the first selected filter option
+  const productSearchFilters = useProductFilters(filters);
 
+  // const hasResults = true;
   return (
-    <SearchStyled className={className} noResults={false}>
+    <SearchStyled className={className} noResults={!resultsInfo.hasResults}>
       <Region width="large" margin="none" padding="small">
         <h1 className="search__title">Search results</h1>
         <div className="search__header">
           <SearchFilters
             className="search__facets"
-            clearFilters={() => alert('clearFilters')}
-            currentFacet={SearchFacets.all}
+            clearFilters={() => clearFilters()}
+            currentFacet={currentFacet}
             // Combining the Facets and Filter objects into one for mobile.
-            filters={{
-              [SearchFacets.all]: {
-                title: 'Facet title',
-                queryParams: {},
-                pagingInfo: { totalCount: 999 },
-              },
-              [SearchFacets.blog]: {
-                title: 'Other facet',
-                queryParams: {},
-                pagingInfo: { totalCount: 999 },
-              },
-              ...(isDesktop ? {} : BlogFilters),
-            }}
-            updateCurrentFacet={facet => alert('updateCurrentFacet: ' + facet)}
-            updateSelectedFilters={(f, v) =>
-              alert('updateSelectedFilters: ' + f + v)
+            filters={
+              isDesktop ? facets : { ...facets, ...productSearchFilters }
             }
+            updateCurrentFacet={facet => updateCurrentFacet(facet)}
+            updateSelectedFilters={(f, v) => updateSelectedFilters(f, v)}
           />
           <SearchInput
-            searchTerm={'searchTerm'}
-            _func={term => alert('updateSearchTerm: ' + term)}
+            searchTerm={searchTerm}
+            _func={term => updateSearchTerm(term)}
           />
         </div>
         <p
           className="search__results-info--text"
-          // dangerouslySetInnerHTML={{ __html: resultsText }}
+          dangerouslySetInnerHTML={{ __html: resultsInfo.resultsText }}
         >
-          Some text about the results we have found
+          {/* Some text about the results we have found */}
         </p>
         <div className="search__results-wrapper">
           <div className="search__results">
-            <SearchCard
-              className="search__result-card"
-              key={0}
-              title="Search result"
-              imageUri="http://preview.leif.zenhub.contensis.cloud/image-library/product-images/pot-images/gra-pot.x9a94e535.jpg?w=400&h=280"
-              imageAlt="Thumbnail alt. text"
-              price={[9.99]}
-              text="Space for some descriptive text about the resource retrieved via the search"
-              type="product"
-              uri="https://www.google.com"
-            />
+            {results.map((result, idx) => (
+              <SearchCard
+                className="search__result-card"
+                key={idx}
+                title={result.title}
+                imageUri={result.imageUri}
+                imageAlt={result.imageAlt}
+                price={result.price}
+                text={result.text}
+                type={result.type}
+                uri={result.uri}
+              />
+            ))}
           </div>
-          {isDesktop && hasResults && (
-            <SearchFilters
-              className="search__filters"
-              clearFilters={() => alert('clearFilters')}
-              currentFacet={SearchFacets.all}
-              filters={BlogFilters}
-              hasResetBtn={true}
-              updateCurrentFacet={facet =>
-                alert('updateCurrentFacet: ' + facet)
-              }
-              updateSelectedFilters={(f, v) =>
-                alert('updateSelectedFilters: ' + f + v)
-              }
-            />
-          )}
-          <div className="search__featured-products"></div>
+          <>
+            {isDesktop && resultsInfo.hasResults && (
+              <SearchFilters
+                className="search__filters"
+                clearFilters={() => clearFilters()}
+                currentFacet={currentFacet}
+                filters={productSearchFilters}
+                hasResetBtn={true}
+                updateCurrentFacet={facet => updateCurrentFacet(facet)}
+                updateSelectedFilters={(f, v) => updateSelectedFilters(f, v)}
+              />
+            )}
+            {resultsInfo.hasResults && featuredResults.length > 0 && (
+              <div className="search__featured-products">
+                {featuredResults.slice(-2).map((featuredProduct, idx) => (
+                  <Card
+                    key={idx}
+                    {...(featuredProduct as CardProps)}
+                    path={'/search'}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         </div>
-        <Button
-          className="search__load-more"
-          type="button"
-          label="Load more"
-          icon="arrow-down"
-          onClick={() => alert('updatePageIndex: currentPageIndex + 1')}
-          btnTheme="secondary"
-          isHollow
-        />
+        {resultsInfo.hasLoadMore && (
+          <Button
+            className="search__load-more"
+            type="button"
+            label="Load more"
+            icon="arrow-down"
+            onClick={() => updatePageIndex(currentPageIndex + 1)}
+            btnTheme="secondary"
+            isHollow
+          />
+        )}
       </Region>
+      {!resultsInfo.hasResults && (
+        <PromotedContent
+          className="search__explore-more"
+          title="Explore more"
+          results={exploreMore}
+        />
+      )}
     </SearchStyled>
   );
 };
 
-export default SearchContainer;
+export default withSearch(transformations)(SearchContainer);
